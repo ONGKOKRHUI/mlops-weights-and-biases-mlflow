@@ -1,0 +1,13 @@
+project_root/
+│
+├── src/
+│   ├── __init__.py
+│   ├── utils.py          # Seeding and device configuration
+│   ├── dataset.py        # Data downloading and loader creation
+│   ├── model.py          # ConvNet architecture
+│   ├── trainer.py        # Training loops and logging
+│   └── evaluator.py      # Testing and ONNX export
+│
+├── main.py               # Entry point (orchestration)
+├── requirements.txt      # Dependencies
+└── config.py             # Hyperparameters

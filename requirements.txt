@@ -1,0 +1,8 @@
+wandb
+mlflow
+torch
+torchvision
+onnx
+tqdm
+oonxscript
+numpy
