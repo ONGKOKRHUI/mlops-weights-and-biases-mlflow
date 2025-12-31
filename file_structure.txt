@@ -1,13 +1,14 @@
 project_root/
 │
-├── src/
-│   ├── __init__.py
-│   ├── utils.py          # Seeding and device configuration
-│   ├── dataset.py        # Data downloading and loader creation
-│   ├── model.py          # ConvNet architecture
-│   ├── trainer.py        # Training loops and logging
-│   └── evaluator.py      # Testing and ONNX export
+├── mnist_to_sqlite.py    # Script to download MNIST and save to SQLite
+├── main.py               # Main entry point for training
+├── config.py             # Configuration (Hyperparameters & paths)
+├── requirements.txt      # Project dependencies
 │
-├── main.py               # Entry point (orchestration)
-├── requirements.txt      # Dependencies
-└── config.py             # Hyperparameters
+└── src/
+    ├── __init__.py       # Makes src a python package
+    ├── dataset.py        # Custom PyTorch Dataset for SQLite
+    ├── model.py          # ConvNet architecture
+    ├── trainer.py        # Training logic & W&B logging
+    ├── evaluator.py      # Evaluation & ONNX export
+    └── utils.py          # Seeding & Device management

@@ -6,5 +6,6 @@ PARAMS = {
     "batch_size": 128,
     "learning_rate": 0.005,
     "dataset": "MNIST",
-    "architecture": "CNN"
+    "architecture": "CNN",
+    "db_path": "data/mnist.db"  # Path to the SQLite database
 }
