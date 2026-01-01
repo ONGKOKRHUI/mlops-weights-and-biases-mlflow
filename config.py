@@ -2,7 +2,7 @@
 
 PARAMS = {
     # Training
-    "epochs": 1,
+    "epochs": 5,
     "batch_size": 128,
     "learning_rate": 0.005,
 
