@@ -17,9 +17,9 @@ from src.model import ConvNet
 from src.trainer import train_model
 from src.evaluator import test_model
 
-def make(config, device):
+def make(db_path, config, device):
     # 1. Load the Full Training Data (60,000 images)
-    full_train_dataset = MNISTDatabaseDataset(config.db_path, split='train')
+    full_train_dataset = MNISTDatabaseDataset(db_path, split='train')
 
     # 2. Split it: 50k for Training, 10k for Validation
     # We use a fixed generator seed so the split is the same every time
@@ -33,7 +33,7 @@ def make(config, device):
     )
 
     # 3. Load the Test Data (10,000 images) - HELD OUT
-    test_dataset = MNISTDatabaseDataset(config.db_path, split='test')
+    test_dataset = MNISTDatabaseDataset(db_path, split='test')
 
     # 4. Create Loaders
     train_loader = DataLoader(train_dataset, batch_size=config.batch_size, shuffle=True, num_workers=0)
@@ -56,32 +56,36 @@ def model_pipeline(hyperparameters=None):
         # not doing HP sweep, so use default hyperparameters
         run = wandb.init(project="pytorch-sqlite-ops", job_type = "training", config=hyperparameters)
     
-    # This tells W&B: "This specific run depends on mnist-sqlite-data:latest"
-    artifact = run.use_artifact("mnist-sqlite-data:latest")
+    config = run.config
 
-    # This ensures you are using the exact file version tracked by W&B
+    # This tells W&B: "This specific run depends on mnist-sqlite-data:latest"
+    artifact = run.use_artifact(config.dataset_artifact, type="dataset")
     artifact_dir = artifact.download()
-    
-    config = wandb.config
-    config.db_path = os.path.join(artifact_dir, "mnist.db")
-    print(dict(wandb.config))
-    print(f"🔗 Run linked to artifact! Using file at: {config.db_path}")
-    
+
+    # Resolve runtime path
+    db_path = os.path.join(artifact_dir, "mnist.db")
+
+    print("🔗 Run linked to dataset artifact")
+    print(f"📦 Artifact: {config.dataset_artifact}")
+    print(f"📁 DB path: {db_path}")
 
     # Get all 3 loaders
-    model, train_loader, val_loader, test_loader, criterion, optimizer = make(config, device)
+    model, train_loader, val_loader, test_loader, criterion, optimizer = make(db_path, config, device)
     
     # Pass train_loader AND val_loader to the trainer
     train_model(model, train_loader, val_loader, criterion, optimizer, config, device)
     
     # Evaluate on the unseen Test Set only at the very end
-    test_model(model, test_loader, config, device)
-    
+    test_model(model, test_loader, config, device, run)
+
+    print("Waiting for W&B to finish...")
+    run.finish()
+    print("🎉 Done!")
+
     return model
 
 if __name__ == "__main__":
-    import os
-    os.environ['WANDB_INIT_TIMEOUT'] = '600'  # timeout in seconds
-
-    model_pipeline(PARAMS)
-    wandb.finish()
+    try:
+        model_pipeline(PARAMS)
+    except Exception as e:
+        print(f"An error occurred: {e}")

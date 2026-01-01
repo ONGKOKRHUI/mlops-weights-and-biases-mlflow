@@ -1,3 +1,4 @@
+import os
 import torch
 import torch.onnx
 import wandb
@@ -35,52 +36,89 @@ def evaluate(model, loader, device, split="val"):
     model.train()
     return metrics
 
-def test_model(model, test_loader, config, device):
+def test_model(model, test_loader, config, device, run): # <--- Add 'run' argument
     print("🧪 Running final evaluation...")
 
     # ---- Evaluate ----
     metrics = evaluate(model, test_loader, device, split="test")
-    wandb.log(metrics)
+    
+    # Use the passed 'run' object for logging
+    run.log(metrics) 
 
-    # Move final metrics to summary
+    # Promote metrics to summary
     for k, v in metrics.items():
-        wandb.run.summary[k] = v
+        run.summary[k] = v
 
     print(f"Final Test Metrics: {metrics}")
 
-    # ---- Export ONNX (run-unique path) ----
-    dummy_input = next(iter(test_loader))[0].to(device)
-    onnx_path = f"model/mnist_{wandb.run.id}.onnx"
-    torch.onnx.export(model, dummy_input, onnx_path)
+    # -------------------------
+    # Export ONNX
+    # -------------------------
+    model.eval()
+    os.makedirs("model", exist_ok=True)
 
-    # ---- Candidate model artifact ----
+    dummy_input = next(iter(test_loader))[0].to(device)
+    
+    # Fix: Use run.id from the passed object
+    onnx_filename = f"mnist_{run.id}.onnx"
+    onnx_path = os.path.join("model", onnx_filename)
+
+    torch.onnx.export(
+        model,
+        dummy_input,
+        onnx_path,
+        input_names=["input"],
+        output_names=["output"],
+    )
+
+    # -------------------------
+    # Candidate model artifact
+    # -------------------------
     candidate_artifact = wandb.Artifact(
         name="mnist-cnn-candidate",
         type="model",
         metadata={
-            "val_accuracy": wandb.run.summary.get("val_accuracy"),
-            "test_accuracy": metrics["test_accuracy"]
-        }
+            "run_id": run.id,
+            "test_accuracy": metrics["test_accuracy"],
+            "architecture": config.architecture,
+        },
     )
-    candidate_artifact.add_file(onnx_path)
-    wandb.log_artifact(candidate_artifact)
 
-    # ---- Best-model promotion ----
-    current_val = wandb.run.summary.get("val_accuracy", 0)
-    best_so_far = wandb.run.summary.get("best_val_accuracy", 0)
+    # Fix: Use abspath to ensure Windows doesn't get confused
+    candidate_artifact.add_file(os.path.abspath(onnx_path))
 
-    if current_val > best_so_far:
-        wandb.run.summary["best_val_accuracy"] = current_val
+    print("📦 Uploading candidate model artifact...")
+    
+    # CRITICAL FIX: Use run.log_artifact instead of wandb.log_artifact
+    run.log_artifact(candidate_artifact)
+    
+    print("✅ Candidate model logged")
 
-        best_artifact = wandb.Artifact(
-            name="mnist-cnn-best",
-            type="model",
-            description="Best model from sweep"
-        )
-        best_artifact.add_file(onnx_path)
-        wandb.log_artifact(best_artifact)
+    # -------------------------
+    # Best model promotion
+    # -------------------------
+    current_val = run.summary.get("val_accuracy")
+    if current_val is not None:
+        best_val = run.summary.get("best_val_accuracy", 0.0)
 
-        print("🏆 New best model logged!")
+        if current_val > best_val:
+            run.summary["best_val_accuracy"] = current_val
 
-    else:
-        print("ℹ️ Model not better than current best")
+            best_artifact = wandb.Artifact(
+                name="mnist-cnn-best",
+                type="model",
+                description="Best model within this run",
+                metadata={
+                    "val_accuracy": current_val,
+                    "test_accuracy": metrics["test_accuracy"],
+                },
+            )
+
+            # Link the SAME file path
+            best_artifact.add_file(os.path.abspath(onnx_path))
+
+            print("🏆 Logging new best model (run-level)...")
+            run.log_artifact(best_artifact)
+
+        else:
+            print("ℹ️ Model not better than current run best")

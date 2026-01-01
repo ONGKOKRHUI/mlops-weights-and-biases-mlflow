@@ -43,3 +43,18 @@ def upload():
 
 if __name__ == "__main__":
     upload()
+
+
+#################################
+"""
+When to use References
+wandb.Artifact.add_reference("link to s3 bucket")
+According to the documentation, this is best used when your files are stored in external object storage like an Amazon S3 bucket. This is useful when:
+
+Data is huge: You have a 1TB dataset that is too large to upload to W&B.
+
+Data is restricted: The data cannot leave your corporate cloud bucket for security reasons.
+
+Duplicate Avoidance: You don't want to create copies of data that is already safely stored in the cloud.
+"""
+##############################################
