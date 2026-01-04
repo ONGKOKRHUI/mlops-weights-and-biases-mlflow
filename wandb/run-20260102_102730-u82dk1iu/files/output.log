@@ -1,0 +1,27 @@
+[34m[1mwandb[0m: Downloading large artifact 'mnist-sqlite-data:latest', 69.69MB. 1 files...
+[34m[1mwandb[0m:   1 of 1 files downloaded.
+Done. 00:00:00.6 (113.7MB/s)
+🔗 Run linked to dataset artifact
+📦 Artifact: mnist-sqlite-data:latest
+📁 DB path: C:\Users\HP\Documents\repos\mlops-weights-&-biases\artifacts\mnist-sqlite-data-v0\mnist.db
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [04:28<00:00, 53.71s/it]
+Epoch 0 | Train Acc: 98.29% | Val Acc: 98.13%
+Epoch 1 | Train Acc: 99.02% | Val Acc: 98.62%
+Epoch 2 | Train Acc: 99.19% | Val Acc: 98.65%
+Epoch 3 | Train Acc: 99.04% | Val Acc: 98.49%
+Epoch 4 | Train Acc: 99.48% | Val Acc: 98.86%
+🧪 Running final evaluation...
+Final Test Metrics: {'test_accuracy': 0.9895, 'test_precision': 0.9895245034165427, 'test_recall': 0.9895, 'test_f1': 0.9894994031868455}
+[torch.onnx] Obtain model graph for `ConvNet([...]` with `torch.export.export(..., strict=False)`...
+[torch.onnx] Obtain model graph for `ConvNet([...]` with `torch.export.export(..., strict=False)`... ✅
+[torch.onnx] Run decomposition...
+[torch.onnx] Run decomposition... ✅
+[torch.onnx] Translate the graph into ONNX...
+[torch.onnx] Translate the graph into ONNX... ✅
+📦 Artifact metadata test: {'run_id': 'u82dk1iu', 'architecture': 'CNN', 'test_accuracy': 0.9895, 'test_precision': 0.9895245034165427, 'test_recall': 0.9895, 'test_f1': 0.9894994031868455}
+📦 Artifact metadata config: {'run_id': 'u82dk1iu', 'architecture': 'CNN', 'test_accuracy': 0.9895, 'test_precision': 0.9895245034165427, 'test_recall': 0.9895, 'test_f1': 0.9894994031868455, 'epochs': 5, 'batch_size': 128, 'learning_rate': 0.005, 'classes': 10, 'kernels': [16, 32], 'dataset_artifact': 'mnist-sqlite-data:latest', 'dataset': 'MNIST', 'model_path': 'model/mnist.onnx'}
+📦 Artifact metadata val: {'run_id': 'u82dk1iu', 'architecture': 'CNN', 'test_accuracy': 0.9895, 'test_precision': 0.9895245034165427, 'test_recall': 0.9895, 'test_f1': 0.9894994031868455, 'epochs': 5, 'batch_size': 128, 'learning_rate': 0.005, 'classes': 10, 'kernels': [16, 32], 'dataset_artifact': 'mnist-sqlite-data:latest', 'dataset': 'MNIST', 'model_path': 'model/mnist.onnx', 'parameters/fc.bias': <wandb.sdk.wandb_summary.SummarySubDict object at 0x000002CC7EDCBCB0>, 'gradients/layer1.0.bias': <wandb.sdk.wandb_summary.SummarySubDict object at 0x000002CC7A5CF610>, 'parameters/layer1.0.bias': <wandb.sdk.wandb_summary.SummarySubDict object at 0x000002CC7EE02710>, 'batch_loss': 0.0007237156969495118, 'train_f1': 0.9948399814667899, 'val_precision': 0.9886806872260101, 'gradients/layer1.0.weight': <wandb.sdk.wandb_summary.SummarySubDict object at 0x000002CC7ED63E10>, 'parameters/layer2.0.weight': <wandb.sdk.wandb_summary.SummarySubDict object at 0x000002CC7F0209D0>, 'gradients/layer2.0.weight': <wandb.sdk.wandb_summary.SummarySubDict object at 0x000002CC7F0160F0>, 'train_accuracy': 0.9948379351740696, '_runtime': 283.9075584, 'train_recall': 0.9948379351740696, 'epoch': 4, '_timestamp': 1767321139.4299865, 'parameters/fc.weight': <wandb.sdk.wandb_summary.SummarySubDict object at 0x000002CC7EE89040>, 'parameters/layer1.0.weight': <wandb.sdk.wandb_summary.SummarySubDict object at 0x000002CC7EE8B9B0>, 'val_accuracy': 0.988622754491018, 'gradients/fc.bias': <wandb.sdk.wandb_summary.SummarySubDict object at 0x000002CC7EED6050>, 'gradients/fc.weight': <wandb.sdk.wandb_summary.SummarySubDict object at 0x000002CC7EED6150>, 'val_f1': 0.9886283476998474, 'gradients/layer2.0.bias': <wandb.sdk.wandb_summary.SummarySubDict object at 0x000002CC7F3B6F30>, 'parameters/layer2.0.bias': <wandb.sdk.wandb_summary.SummarySubDict object at 0x000002CC7F3B66C0>, 'val_recall': 0.988622754491018, '_step': 249900, 'train_precision': 0.994856531575469}
+📦 Uploading candidate model artifact...
+✅ Candidate model logged
+🏆 Logging new best model (selected by val_accuracy)...
+✅ New best model logged

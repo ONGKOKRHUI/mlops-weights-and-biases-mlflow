@@ -50,7 +50,7 @@ def make(db_path, config, device):
 
 def model_pipeline(hyperparameters=None):
     device = get_device()
-    #set_seed()
+    set_seed()
 
     # wandb.run is None if not doing a HP sweep
     if wandb.run is None:
@@ -80,7 +80,7 @@ def model_pipeline(hyperparameters=None):
     model, train_loader, val_loader, test_loader, criterion, optimizer = make(db_path, config, device)
     
     # Pass train_loader AND val_loader to the trainer
-    train_model(model, train_loader, val_loader, criterion, optimizer, config, device)
+    train_model(model, train_loader, val_loader, criterion, optimizer, config, device, run)
     
     # Evaluate on the unseen Test Set only at the very end
     test_model(model, test_loader, config, device, run)

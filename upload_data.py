@@ -8,13 +8,13 @@ os.environ["WANDB_HTTP_TIMEOUT"] = "300"
 def upload():
     # Initialize a run JUST for data upload
     run = wandb.init(
-        project="pytorch-sqlite-sweeps",     #project="pytorch-sqlite-ops"
+        project="pytorch-sqlite-ops",     #project="pytorch-sqlite-sweeps",
         job_type="upload_dataset",
         name="upload_mnist_data"
     )
     
     # Path to your file
-    db_path = "data/mnist.db" # <--- Verify this path matches your local folder
+    db_path = "data/mnist.db" 
 
     if os.path.exists(db_path):
         print(f"✅ Found file at {db_path}")

@@ -1,0 +1,16 @@
+{"time":"2026-01-02T09:05:58.1125939+08:00","level":"INFO","msg":"stream: starting","core version":"0.23.1"}
+{"time":"2026-01-02T09:06:00.2297004+08:00","level":"INFO","msg":"stream: created new stream","id":"0siiqf9u"}
+{"time":"2026-01-02T09:06:00.2297004+08:00","level":"INFO","msg":"handler: started","stream_id":"0siiqf9u"}
+{"time":"2026-01-02T09:06:00.2319239+08:00","level":"INFO","msg":"stream: started","id":"0siiqf9u"}
+{"time":"2026-01-02T09:06:00.2319239+08:00","level":"INFO","msg":"writer: started","stream_id":"0siiqf9u"}
+{"time":"2026-01-02T09:06:00.2319239+08:00","level":"INFO","msg":"sender: started","stream_id":"0siiqf9u"}
+{"time":"2026-01-02T09:06:04.1150992+08:00","level":"WARN","msg":"sender: sendUseArtifact: job builder disabled, skipping"}
+{"time":"2026-01-02T09:08:07.6574949+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/kokrhui-ong-tng-digital/pytorch-sqlite-ops/0siiqf9u/file_stream\": read tcp 172.20.10.2:51471->35.186.228.49:443: wsarecv: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond."}
+{"time":"2026-01-02T09:08:30.820109+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/kokrhui-ong-tng-digital/pytorch-sqlite-ops/0siiqf9u/file_stream\": dial tcp 35.186.228.49:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond."}
+{"time":"2026-01-02T09:08:35.5874628+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/kokrhui-ong-tng-digital/pytorch-sqlite-ops/0siiqf9u/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2026-01-02T09:10:50.4337128+08:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2026-01-02T09:10:50.8459153+08:00","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2026-01-02T09:10:50.8517162+08:00","level":"INFO","msg":"stream: closing","id":"0siiqf9u"}
+{"time":"2026-01-02T09:10:50.8517162+08:00","level":"INFO","msg":"handler: closed","stream_id":"0siiqf9u"}
+{"time":"2026-01-02T09:10:50.8517162+08:00","level":"INFO","msg":"sender: closed","stream_id":"0siiqf9u"}
+{"time":"2026-01-02T09:10:50.8517162+08:00","level":"INFO","msg":"stream: closed","id":"0siiqf9u"}

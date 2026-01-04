@@ -1,0 +1,13 @@
+{"time":"2026-01-02T09:23:04.0633482+08:00","level":"INFO","msg":"stream: starting","core version":"0.23.1"}
+{"time":"2026-01-02T09:23:06.708725+08:00","level":"INFO","msg":"stream: created new stream","id":"cakexf60"}
+{"time":"2026-01-02T09:23:06.708725+08:00","level":"INFO","msg":"handler: started","stream_id":"cakexf60"}
+{"time":"2026-01-02T09:23:06.710829+08:00","level":"INFO","msg":"stream: started","id":"cakexf60"}
+{"time":"2026-01-02T09:23:06.710829+08:00","level":"INFO","msg":"writer: started","stream_id":"cakexf60"}
+{"time":"2026-01-02T09:23:06.710829+08:00","level":"INFO","msg":"sender: started","stream_id":"cakexf60"}
+{"time":"2026-01-02T09:23:10.6169892+08:00","level":"WARN","msg":"sender: sendUseArtifact: job builder disabled, skipping"}
+{"time":"2026-01-02T09:31:03.2639806+08:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2026-01-02T09:31:03.811497+08:00","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2026-01-02T09:31:03.8182937+08:00","level":"INFO","msg":"stream: closing","id":"cakexf60"}
+{"time":"2026-01-02T09:31:03.8182937+08:00","level":"INFO","msg":"handler: closed","stream_id":"cakexf60"}
+{"time":"2026-01-02T09:31:03.8188059+08:00","level":"INFO","msg":"sender: closed","stream_id":"cakexf60"}
+{"time":"2026-01-02T09:31:03.8188059+08:00","level":"INFO","msg":"stream: closed","id":"cakexf60"}

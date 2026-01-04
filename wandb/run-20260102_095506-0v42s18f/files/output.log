@@ -1,0 +1,25 @@
+[34m[1mwandb[0m: Downloading large artifact 'mnist-sqlite-data:latest', 69.69MB. 1 files...
+[34m[1mwandb[0m:   1 of 1 files downloaded.
+Done. 00:00:00.4 (157.6MB/s)
+🔗 Run linked to dataset artifact
+📦 Artifact: mnist-sqlite-data:latest
+📁 DB path: C:\Users\HP\Documents\repos\mlops-weights-&-biases\artifacts\mnist-sqlite-data-v0\mnist.db
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [06:12<00:00, 74.57s/it]
+Epoch 0 | Train Acc: 98.17% | Val Acc: 97.84%
+Epoch 1 | Train Acc: 98.82% | Val Acc: 98.47%
+Epoch 2 | Train Acc: 99.14% | Val Acc: 98.79%
+Epoch 3 | Train Acc: 99.46% | Val Acc: 98.85%
+Epoch 4 | Train Acc: 99.22% | Val Acc: 98.61%
+🧪 Running final evaluation...
+Final Test Metrics: {'test_accuracy': 0.9876, 'test_precision': 0.9876984166532409, 'test_recall': 0.9876, 'test_f1': 0.9876029118035221}
+[torch.onnx] Obtain model graph for `ConvNet([...]` with `torch.export.export(..., strict=False)`...
+[torch.onnx] Obtain model graph for `ConvNet([...]` with `torch.export.export(..., strict=False)`... ✅
+[torch.onnx] Run decomposition...
+[torch.onnx] Run decomposition... ✅
+[torch.onnx] Translate the graph into ONNX...
+[torch.onnx] Translate the graph into ONNX... ✅
+📦 Artifact metadata test: {'run_id': '0v42s18f', 'architecture': 'CNN', 'test_accuracy': 0.9876, 'test_precision': 0.9876984166532409, 'test_recall': 0.9876, 'test_f1': 0.9876029118035221}
+📦 Uploading candidate model artifact...
+✅ Candidate model logged
+🏆 Logging new best model (selected by val_accuracy)...
+✅ New best model logged

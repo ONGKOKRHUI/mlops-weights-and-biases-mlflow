@@ -1,0 +1,13 @@
+{"time":"2026-01-02T10:59:35.3587564+08:00","level":"INFO","msg":"stream: starting","core version":"0.23.1"}
+{"time":"2026-01-02T10:59:37.6790305+08:00","level":"INFO","msg":"stream: created new stream","id":"cisedxnt"}
+{"time":"2026-01-02T10:59:37.6790305+08:00","level":"INFO","msg":"handler: started","stream_id":"cisedxnt"}
+{"time":"2026-01-02T10:59:37.6806141+08:00","level":"INFO","msg":"stream: started","id":"cisedxnt"}
+{"time":"2026-01-02T10:59:37.6811562+08:00","level":"INFO","msg":"writer: started","stream_id":"cisedxnt"}
+{"time":"2026-01-02T10:59:37.6811562+08:00","level":"INFO","msg":"sender: started","stream_id":"cisedxnt"}
+{"time":"2026-01-02T10:59:42.5503396+08:00","level":"WARN","msg":"sender: sendUseArtifact: job builder disabled, skipping"}
+{"time":"2026-01-02T11:03:31.8328581+08:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2026-01-02T11:03:32.654622+08:00","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2026-01-02T11:03:32.6595708+08:00","level":"INFO","msg":"stream: closing","id":"cisedxnt"}
+{"time":"2026-01-02T11:03:32.6595708+08:00","level":"INFO","msg":"handler: closed","stream_id":"cisedxnt"}
+{"time":"2026-01-02T11:03:32.6595708+08:00","level":"INFO","msg":"sender: closed","stream_id":"cisedxnt"}
+{"time":"2026-01-02T11:03:32.6595708+08:00","level":"INFO","msg":"stream: closed","id":"cisedxnt"}

@@ -1,0 +1,143 @@
+[34m[1mwandb[0m: Downloading large artifact 'mnist-sqlite-data:latest', 69.69MB. 1 files...
+[34m[1mwandb[0m:   1 of 1 files downloaded.
+Done. 00:00:00.6 (113.1MB/s)
+🔗 Run linked to dataset artifact
+📦 Artifact: mnist-sqlite-data:latest
+📁 DB path: C:\Users\HP\Documents\repos\mlops-weights-&-biases\artifacts\mnist-sqlite-data-v0\mnist.db
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [02:41<00:00, 53.89s/it]
+Epoch 0 | Train Acc: 98.45% | Val Acc: 98.27%
+Epoch 1 | Train Acc: 98.88% | Val Acc: 98.55%
+Epoch 2 | Train Acc: 99.22% | Val Acc: 98.55%
+🧪 Running final evaluation...
+Final Test Metrics: {'test_accuracy': 0.9888, 'test_precision': 0.9888622334149823, 'test_recall': 0.9888, 'test_f1': 0.9888046969047558}
+[torch.onnx] Obtain model graph for `ConvNet([...]` with `torch.export.export(..., strict=False)`...
+[torch.onnx] Obtain model graph for `ConvNet([...]` with `torch.export.export(..., strict=False)`... ✅
+[torch.onnx] Run decomposition...
+[torch.onnx] Run decomposition... ✅
+[torch.onnx] Translate the graph into ONNX...
+[torch.onnx] Translate the graph into ONNX... ✅
+📦 Artifact metadata test: {'run_id': 'cwff8kgw', 'architecture': 'CNN', 'test_accuracy': 0.9888, 'test_precision': 0.9888622334149823, 'test_recall': 0.9888, 'test_f1': 0.9888046969047558}
+📦 Artifact metadata config: {'run_id': 'cwff8kgw', 'architecture': 'CNN', 'test_accuracy': 0.9888, 'test_precision': 0.9888622334149823, 'test_recall': 0.9888, 'test_f1': 0.9888046969047558, 'batch_size': 128, 'classes': 10, 'dataset': 'MNIST', 'dataset_artifact': 'mnist-sqlite-data:latest', 'db_path': 'data/mnist.db', 'epochs': 3, 'kernels': [16, 32], 'learning_rate': 0.003539942041881427, 'model_path': 'model/mnist.onnx'}
+📦 Artifact metadata val: {'run_id': 'cwff8kgw', 'architecture': 'CNN', 'test_accuracy': 0.9888, 'test_precision': 0.9888622334149823, 'test_recall': 0.9888, 'test_f1': 0.9888046969047558, 'batch_size': 128, 'classes': 10, 'dataset': 'MNIST', 'dataset_artifact': 'mnist-sqlite-data:latest', 'db_path': 'data/mnist.db', 'epochs': 3, 'kernels': [16, 32], 'learning_rate': 0.003539942041881427, 'model_path': 'model/mnist.onnx', 'batch_loss': 0.04601901397109032, 'val_f1': 0.9855343637814998, 'train_accuracy': 0.9921968787515006, 'val_accuracy': 0.9855289421157685, 'gradients/graph_2layer2.0.bias': <wandb.sdk.wandb_summary.SummarySubDict object at 0x000001D841FEB9A0>, '_step': 149940, 'epoch': 2, '_runtime': 172.3021721, 'parameters/graph_2layer2.0.weight': <wandb.sdk.wandb_summary.SummarySubDict object at 0x000001D83FE56B30>, 'parameters/graph_2layer2.0.bias': <wandb.sdk.wandb_summary.SummarySubDict object at 0x000001D84200CDD0>, 'gradients/graph_2layer1.0.weight': <wandb.sdk.wandb_summary.SummarySubDict object at 0x000001D84200C0B0>, 'train_f1': 0.9921998526483902, '_timestamp': 1767327677.1702445, 'gradients/graph_2layer2.0.weight': <wandb.sdk.wandb_summary.SummarySubDict object at 0x000001D84200FA10>, 'train_recall': 0.9921968787515006, 'val_recall': 0.9855289421157685, 'val_precision': 0.9856512764723904, 'parameters/graph_2fc.bias': <wandb.sdk.wandb_summary.SummarySubDict object at 0x000001D84200C7D0>, 'parameters/graph_2fc.weight': <wandb.sdk.wandb_summary.SummarySubDict object at 0x000001D84200FB90>, 'parameters/graph_2layer1.0.bias': <wandb.sdk.wandb_summary.SummarySubDict object at 0x000001D84200C770>, 'parameters/graph_2layer1.0.weight': <wandb.sdk.wandb_summary.SummarySubDict object at 0x000001D84200D3D0>, 'train_precision': 0.9922497307375707, 'gradients/graph_2fc.bias': <wandb.sdk.wandb_summary.SummarySubDict object at 0x000001D84200ED50>, 'gradients/graph_2layer1.0.bias': <wandb.sdk.wandb_summary.SummarySubDict object at 0x000001D84200F890>, 'gradients/graph_2fc.weight': <wandb.sdk.wandb_summary.SummarySubDict object at 0x000001D84200C890>}
+📦 Uploading candidate model artifact...
+[34m[1mwandb[0m: [33mWARNING[0m A graphql request initiated by the public wandb API timed out (timeout=19 sec). Create a new API with an integer timeout larger than 19, e.g., `api = wandb.Api(timeout=29)` to increase the graphql timeout.
+✅ Candidate model logged
+[34m[1mwandb[0m: Network error (ConnectionError), entering retry loop.
+[34m[1mwandb[0m: Network error (ConnectionError), entering retry loop.
+[34m[1mwandb[0m: W&B API key is configured. Use [1m`wandb login --relogin`[0m to force relogin
+Traceback (most recent call last):
+  File "C:\Users\HP\Documents\repos\mlops-weights-&-biases\venv\Lib\site-packages\urllib3\connection.py", line 204, in _new_conn
+    sock = connection.create_connection(
+        (self._dns_host, self.port),
+    ...<2 lines>...
+        socket_options=self.socket_options,
+    )
+  File "C:\Users\HP\Documents\repos\mlops-weights-&-biases\venv\Lib\site-packages\urllib3\util\connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 977, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\HP\Documents\repos\mlops-weights-&-biases\venv\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "C:\Users\HP\Documents\repos\mlops-weights-&-biases\venv\Lib\site-packages\urllib3\connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "C:\Users\HP\Documents\repos\mlops-weights-&-biases\venv\Lib\site-packages\urllib3\connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\HP\Documents\repos\mlops-weights-&-biases\venv\Lib\site-packages\urllib3\connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\HP\Documents\repos\mlops-weights-&-biases\venv\Lib\site-packages\urllib3\connection.py", line 759, in connect
+    self.sock = sock = self._new_conn()
+                       ~~~~~~~~~~~~~~^^
+  File "C:\Users\HP\Documents\repos\mlops-weights-&-biases\venv\Lib\site-packages\urllib3\connection.py", line 211, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: HTTPSConnection(host='api.wandb.ai', port=443): Failed to resolve 'api.wandb.ai' ([Errno 11001] getaddrinfo failed)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\HP\Documents\repos\mlops-weights-&-biases\venv\Lib\site-packages\requests\adapters.py", line 644, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "C:\Users\HP\Documents\repos\mlops-weights-&-biases\venv\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "C:\Users\HP\Documents\repos\mlops-weights-&-biases\venv\Lib\site-packages\urllib3\util\retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /graphql (Caused by NameResolutionError("HTTPSConnection(host='api.wandb.ai', port=443): Failed to resolve 'api.wandb.ai' ([Errno 11001] getaddrinfo failed)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\HP\Documents\repos\mlops-weights-&-biases\venv\Lib\site-packages\wandb\sdk\wandb_login.py", line 387, in _verify_login
+    is_api_key_valid = api.validate_api_key()
+  File "C:\Users\HP\Documents\repos\mlops-weights-&-biases\venv\Lib\site-packages\wandb\apis\internal.py", line 66, in validate_api_key
+    return self.api.validate_api_key()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\HP\Documents\repos\mlops-weights-&-biases\venv\Lib\site-packages\wandb\sdk\internal\internal_api.py", line 402, in validate_api_key
+    res = self.execute(gql("query { viewer { id } }"))
+  File "C:\Users\HP\Documents\repos\mlops-weights-&-biases\venv\Lib\site-packages\wandb\sdk\internal\internal_api.py", line 391, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Documents\repos\mlops-weights-&-biases\venv\Lib\site-packages\wandb\vendor\gql-0.2.0\wandb_gql\client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "C:\Users\HP\Documents\repos\mlops-weights-&-biases\venv\Lib\site-packages\wandb\vendor\gql-0.2.0\wandb_gql\client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Documents\repos\mlops-weights-&-biases\venv\Lib\site-packages\wandb\sdk\lib\gql_request.py", line 70, in execute
+    request = self.session.post(self.url, **post_args)
+  File "C:\Users\HP\Documents\repos\mlops-weights-&-biases\venv\Lib\site-packages\requests\sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Documents\repos\mlops-weights-&-biases\venv\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\HP\Documents\repos\mlops-weights-&-biases\venv\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\HP\Documents\repos\mlops-weights-&-biases\venv\Lib\site-packages\requests\adapters.py", line 677, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /graphql (Caused by NameResolutionError("HTTPSConnection(host='api.wandb.ai', port=443): Failed to resolve 'api.wandb.ai' ([Errno 11001] getaddrinfo failed)"))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\HP\Documents\repos\mlops-weights-&-biases\venv\Lib\site-packages\wandb\agents\pyagent.py", line 296, in _run_job
+    self._function()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Users\HP\Documents\repos\mlops-weights-&-biases\sweep.py", line 40, in sweep_train
+    model_pipeline()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Users\HP\Documents\repos\mlops-weights-&-biases\main.py", line 86, in model_pipeline
+    test_model(model, test_loader, config, device, run)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Documents\repos\mlops-weights-&-biases\src\evaluator.py", line 117, in test_model
+    api = wandb.Api()
+  File "C:\Users\HP\Documents\repos\mlops-weights-&-biases\venv\Lib\site-packages\wandb\apis\public\api.py", line 319, in __init__
+    wandb_login._verify_login(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        key=self.api_key,
+        ^^^^^^^^^^^^^^^^^
+        base_url=self.settings["base_url"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\HP\Documents\repos\mlops-weights-&-biases\venv\Lib\site-packages\wandb\sdk\wandb_login.py", line 389, in _verify_login
+    raise AuthenticationError(
+        f"Unable to connect to {base_url} to verify API token."
+    ) from e
+wandb.errors.errors.AuthenticationError: Unable to connect to https://api.wandb.ai to verify API token.

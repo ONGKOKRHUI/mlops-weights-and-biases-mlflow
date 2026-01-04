@@ -1,0 +1,13 @@
+{"time":"2026-01-02T12:11:46.5217115+08:00","level":"INFO","msg":"stream: starting","core version":"0.23.1"}
+{"time":"2026-01-02T12:11:48.7931676+08:00","level":"INFO","msg":"stream: created new stream","id":"er3dnyqg"}
+{"time":"2026-01-02T12:11:48.7931676+08:00","level":"INFO","msg":"handler: started","stream_id":"er3dnyqg"}
+{"time":"2026-01-02T12:11:48.794725+08:00","level":"INFO","msg":"stream: started","id":"er3dnyqg"}
+{"time":"2026-01-02T12:11:48.794725+08:00","level":"INFO","msg":"sender: started","stream_id":"er3dnyqg"}
+{"time":"2026-01-02T12:11:48.794725+08:00","level":"INFO","msg":"writer: started","stream_id":"er3dnyqg"}
+{"time":"2026-01-02T12:11:52.8615034+08:00","level":"WARN","msg":"sender: sendUseArtifact: job builder disabled, skipping"}
+{"time":"2026-01-02T12:15:02.3431677+08:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2026-01-02T12:15:03.1475641+08:00","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2026-01-02T12:15:03.1527096+08:00","level":"INFO","msg":"stream: closing","id":"er3dnyqg"}
+{"time":"2026-01-02T12:15:03.1527096+08:00","level":"INFO","msg":"handler: closed","stream_id":"er3dnyqg"}
+{"time":"2026-01-02T12:15:03.1527096+08:00","level":"INFO","msg":"sender: closed","stream_id":"er3dnyqg"}
+{"time":"2026-01-02T12:15:03.1527096+08:00","level":"INFO","msg":"stream: closed","id":"er3dnyqg"}

@@ -51,15 +51,6 @@ def test_model(model, test_loader, config, device, run): # <--- Add 'run' argume
 
     print(f"Final Test Metrics: {metrics}")
 
-    #-------------------------
-    # include val metrics in the summary for best model choosing
-    #-------------------------
-    val_metrics = evaluate(model, test_loader, device, split="val")
-    for k, v in val_metrics.items():
-        run.summary[k] = v
-    
-    print(f"Final Val Metrics: {val_metrics}")
-
     # -------------------------
     # Export ONNX
     # -------------------------
@@ -84,7 +75,7 @@ def test_model(model, test_loader, config, device, run): # <--- Add 'run' argume
     
     #------------------------------
     #Build artifact metadata
-    #-------------------------------
+    #------------------------------
 
     artifact_metadata = {
     "run_id": run.id,
@@ -93,6 +84,15 @@ def test_model(model, test_loader, config, device, run): # <--- Add 'run' argume
 
     # Add test metrics
     artifact_metadata.update(metrics)
+    print("📦 Artifact metadata test:", artifact_metadata)
+
+    # Add config
+    artifact_metadata.update(config)
+    print("📦 Artifact metadata config:", artifact_metadata)
+
+    #add validation metrics from run.summary
+    artifact_metadata.update(run.summary)
+    print("📦 Artifact metadata val:", artifact_metadata)
 
     # -------------------------
     # Candidate model artifact
@@ -103,45 +103,50 @@ def test_model(model, test_loader, config, device, run): # <--- Add 'run' argume
         metadata=artifact_metadata,
     )
 
-    # Fix: Use abspath to ensure Windows doesn't get confused
     candidate_artifact.add_file(os.path.abspath(onnx_path))
 
     print("📦 Uploading candidate model artifact...")
     
-    # CRITICAL FIX: Use run.log_artifact instead of wandb.log_artifact
     run.log_artifact(candidate_artifact)
     print("✅ Candidate model logged")
 
     # -------------------------
     # Best model promotion (by validation accuracy)
     # -------------------------
+    # get the current best validation accuracy
+    api = wandb.Api()
+
+    best_val = None
+    try:
+        best_artifact = api.artifact(
+            "kokrhui-ong-tng-digital/pytorch-sqlite-sweeps/mnist-cnn-best:best"
+        )
+        best_val = best_artifact.metadata.get("best_val_accuracy")
+    except wandb.errors.CommError:
+        print("ℹ️ No existing best model found")
+
     current_val = run.summary.get("val_accuracy")
 
-    if current_val is None:
-        print("⚠️ val_accuracy not found in run.summary — skipping best model check")
+    if best_val is None or current_val > best_val:
+        print("🏆 New best model found")
+
+        best_artifact = wandb.Artifact(
+            name="mnist-cnn-best",
+            type="model",
+            description="Best model selected by validation accuracy",
+            metadata={
+                **artifact_metadata,
+                "selection_metric": "val_accuracy",
+                "best_val_accuracy": current_val,
+                "source_run_id": run.id,
+            },
+        )
+
+        best_artifact.add_file(os.path.abspath(onnx_path))
+        run.log_artifact(best_artifact, aliases=["best"])
+
     else:
-        best_val = run.summary.get("best_val_accuracy", 0.0)
-
-        if current_val > best_val:
-            run.summary["best_val_accuracy"] = current_val
-
-            best_artifact = wandb.Artifact(
-                name="mnist-cnn-best",
-                type="model",
-                description="Best model selected by validation accuracy",
-                metadata={
-                    **artifact_metadata,
-                    "selection_metric": "val_accuracy",
-                    "best_val_accuracy": current_val,
-                },
-            )
-
-            # Link the SAME ONNX file
-            best_artifact.add_file(os.path.abspath(onnx_path))
-
-            print("🏆 Logging new best model (selected by val_accuracy)...")
-            run.log_artifact(best_artifact, aliases=["best"])
-            print("✅ New best model logged")
-
-        else:
-            print("ℹ️ Model did not improve on best validation accuracy")
+        print(
+            f"ℹ️ Model did not beat best "
+            f"({current_val:.4f} <= {best_val:.4f})"
+        )

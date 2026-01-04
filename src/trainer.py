@@ -11,7 +11,7 @@ def train_batch(images, labels, model, optimizer, criterion, device):
     optimizer.step()
     return loss
 
-def train_model(model, train_loader, val_loader, criterion, optimizer, config, device):
+def train_model(model, train_loader, val_loader, criterion, optimizer, config, device, run):
     wandb.watch(model, criterion, log="all", log_freq=10)
     
     example_ct = 0
@@ -46,3 +46,7 @@ def train_model(model, train_loader, val_loader, criterion, optimizer, config, d
         wandb.log(logs, step=example_ct)
         
         print(f"Epoch {epoch} | Train Acc: {train_metrics['train_accuracy']:.2%} | Val Acc: {val_metrics['val_accuracy']:.2%}")
+    
+    # store val_metrics to run summary
+    for k, v in val_metrics.items():
+        run.summary[k] = v

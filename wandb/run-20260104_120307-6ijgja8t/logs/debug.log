@@ -1,0 +1,27 @@
+2026-01-04 12:03:07,635 INFO    MainThread:11272 [wandb_setup.py:_flush():80] Current SDK version is 0.23.1
+2026-01-04 12:03:07,635 INFO    MainThread:11272 [wandb_setup.py:_flush():80] Configure stats pid to 11272
+2026-01-04 12:03:07,636 INFO    MainThread:11272 [wandb_setup.py:_flush():80] Loading settings from C:\Users\HP\.config\wandb\settings
+2026-01-04 12:03:07,636 INFO    MainThread:11272 [wandb_setup.py:_flush():80] Loading settings from C:\Users\HP\Documents\repos\mlops-weights-&-biases\wandb\settings
+2026-01-04 12:03:07,636 INFO    MainThread:11272 [wandb_setup.py:_flush():80] Loading settings from environment variables
+2026-01-04 12:03:07,636 INFO    MainThread:11272 [wandb_init.py:setup_run_log_directory():714] Logging user logs to C:\Users\HP\Documents\repos\mlops-weights-&-biases\wandb\run-20260104_120307-6ijgja8t\logs\debug.log
+2026-01-04 12:03:07,640 INFO    MainThread:11272 [wandb_init.py:setup_run_log_directory():715] Logging internal logs to C:\Users\HP\Documents\repos\mlops-weights-&-biases\wandb\run-20260104_120307-6ijgja8t\logs\debug-internal.log
+2026-01-04 12:03:07,640 INFO    MainThread:11272 [wandb_init.py:init():841] calling init triggers
+2026-01-04 12:03:07,640 INFO    MainThread:11272 [wandb_init.py:init():846] wandb.init called with sweep_config: {}
+config: {'epochs': 1, 'batch_size': 128, 'learning_rate': 0.005, 'classes': 10, 'kernels': [16, 32], 'architecture': 'CNN', 'dataset_artifact': 'mnist-sqlite-data:latest', 'dataset': 'MNIST', 'model_path': 'model/mnist.onnx', '_wandb': {}}
+2026-01-04 12:03:07,640 INFO    MainThread:11272 [wandb_init.py:init():889] starting backend
+2026-01-04 12:03:10,198 INFO    MainThread:11272 [wandb_init.py:init():892] sending inform_init request
+2026-01-04 12:03:10,261 INFO    MainThread:11272 [wandb_init.py:init():900] backend started and connected
+2026-01-04 12:03:10,349 INFO    MainThread:11272 [wandb_init.py:init():970] updated telemetry
+2026-01-04 12:03:10,399 INFO    MainThread:11272 [wandb_init.py:init():994] communicating run to backend with 90.0 second timeout
+2026-01-04 12:03:13,326 INFO    MainThread:11272 [wandb_init.py:init():1041] starting run threads in backend
+2026-01-04 12:03:13,424 INFO    MainThread:11272 [wandb_run.py:_console_start():2521] atexit reg
+2026-01-04 12:03:13,425 INFO    MainThread:11272 [wandb_run.py:_redirect():2369] redirect: wrap_raw
+2026-01-04 12:03:13,425 INFO    MainThread:11272 [wandb_run.py:_redirect():2438] Wrapping output streams.
+2026-01-04 12:03:13,425 INFO    MainThread:11272 [wandb_run.py:_redirect():2461] Redirects installed.
+2026-01-04 12:03:13,433 INFO    MainThread:11272 [wandb_init.py:init():1081] run started, returning control to user process
+2026-01-04 12:03:20,811 INFO    MainThread:11272 [wandb_watch.py:_watch():68] Watching
+2026-01-04 12:04:57,015 INFO    MainThread:11272 [wandb_run.py:_finish():2287] finishing run kokrhui-ong-tng-digital/pytorch-sqlite-ops/6ijgja8t
+2026-01-04 12:04:57,016 INFO    MainThread:11272 [wandb_run.py:_atexit_cleanup():2486] got exitcode: 0
+2026-01-04 12:04:57,016 INFO    MainThread:11272 [wandb_run.py:_restore():2468] restore
+2026-01-04 12:04:57,016 INFO    MainThread:11272 [wandb_run.py:_restore():2474] restore done
+2026-01-04 12:04:58,893 INFO    MainThread:11272 [wandb_run.py:_footer_sync_info():3862] logging synced files
